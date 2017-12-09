@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: arrayify
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: arrayify-pods
+    spec:
+      containers:
+      - image: kugelr/arrayify:latest
+        name: arrayify-container
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+          name: http-server

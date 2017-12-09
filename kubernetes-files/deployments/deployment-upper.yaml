@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: toupper
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: toupper-pods
+    spec:
+      containers:
+      - image: kugelr/to_upper:latest
+        name: toupper-container
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+          name: http-server
